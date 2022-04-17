@@ -13,3 +13,16 @@ body{
     margin-left: 12rem;
   }
 }
+
+.Sun{
+  color:#E45826;
+}
+
+.Moon{
+  color:#488FB1;
+}
+
+.button{
+  background-color: white;
+  border-style: none;
+}

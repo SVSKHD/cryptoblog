@@ -1,17 +1,19 @@
-import Header from "./Header"
-import Seo from "../helpers/Seo/Seo"
+import Header from "./Header";
+import Seo from "../helpers/Seo/Seo";
 
 const Layout = (props) => {
-    return (
-        <div>
-        <div>
-            <div className="container">
-                <Header />
-                <Seo title={props.title}/>
-                {props.children}
-            </div>
-        </div>
+  return (
+    <div>
+      <div>
+        <body>
+          <div className="container">
+            <Header />
+            <Seo title={props.title} />
+            {props.children}
+          </div>
+        </body>
+      </div>
     </div>
-    )
-}
-export default Layout
+  );
+};
+export default Layout;
