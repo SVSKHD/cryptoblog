@@ -1,3 +1,15 @@
-.clockcenter{
-  margin-left: 5.5rem;
+body{
+  font-family: 'Mulish', sans-serif!important;
+  background-color: #22577E!important ;
+}
+
+
+.clockcenter {
+  margin: 5rem;
+}
+
+@media only screen and (max-width:600px) {
+  .clockcenter {
+    margin-left: 12rem;
+  }
 }

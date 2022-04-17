@@ -19,12 +19,17 @@ function Header() {
             <div className='card'>
                 <div className='card-body'>
                     <div className='row'>
-                        <div className='col-4'></div>
-                        <div className='col-4 '>
+                        <div className='col-md-4 col-xs-6 col-sm-6 col-lg-4'>
+                            <h2>Market status and historic and present data</h2>
+                        </div>
+                        <div className='col-md-4 col-xs-6 col-sm-6 col-lg-4'>
                             <Clock className='clockcenter' size={100} value={value} />
                             <br />
                         </div>
-                        <div className='col-4'></div>
+                        <div className='col-md-4 col-xs-6 col-sm-6 col-lg-4'>
+                            <h2>Market forecast and giving an note on it</h2>
+                            <p>Theme Toggler</p>
+                        </div>
                     </div>
                 </div>
             </div>
