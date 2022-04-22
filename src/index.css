@@ -3,6 +3,22 @@ body{
   background-color: #22577E!important ;
 }
 
+.card{
+  font-family: Mulish;
+}
+
+.height{
+  height: 300px;
+}
+
+.card-section{
+  background-color: #22577E;
+  border-radius: 1rem;
+  text-align: center;
+  color:white;
+  padding:20px
+}
+
 
 .clockcenter {
   margin: 5rem;

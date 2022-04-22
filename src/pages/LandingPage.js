@@ -7,16 +7,16 @@ import LCard from "../components/cards/landingPageCard"
 
 const LandingPage = () => {
   const [dataLog, setDataLog] = useState([]);
-  const [sortedData, setSortedData] = useState([]);
-  const [loading, setLoading] = useState(setTimeout(true , 3000));
+  const [filtered, setFiltered] = useState([])
+  const [loading, setLoading] = useState(setTimeout(true, 3000));
   const [msg, setMessage] = useState("");
 
   useEffect(() => {
     getPrices()
       .then((data) => {
         setLoading(true);
-        setDataLog(data.data.coins);
-        setSortedData(dataLog.sort((a, b) => a.rank - b.rank));
+        setDataLog(data.data.coins.sort((a, b) => a.rank - b.rank))
+        console.log("filteredcoins", dataLog)
         setLoading(false);
       })
       .catch((err) => {
@@ -25,6 +25,7 @@ const LandingPage = () => {
       });
   }, []);
 
+
   return (
     <>
       <div>
@@ -32,10 +33,23 @@ const LandingPage = () => {
           <br />
           <div className="card">
             <div className="card-body">
+              <input placeholder="Search Your Crypto Currencies" className="form-control" />
+              <br />
               {loading ? (
-                <Spinner/>
+                <Spinner />
               ) : (
-                <LCard title="loaded"/>
+                <div className="row">
+                  {dataLog.map((data, i) => (
+                    <>
+                      <div className="col-3">
+                        <LCard 
+                        title={data.name} 
+                        symbol={data.symbol}
+                        />
+                      </div>
+                    </>
+                  ))}
+                </div>
               )}
             </div>
           </div>
