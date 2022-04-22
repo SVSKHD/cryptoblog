@@ -50,7 +50,7 @@ const LandingPage = () => {
                   {msg}
                   {dataLog.map((data, i) => (
                     <>
-                      <div className="col-3">
+                      <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3">
                         <LCard 
                         title={data.name} 
                         symbol={data.symbol} 
