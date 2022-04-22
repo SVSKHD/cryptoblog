@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import Layout from "../layout/Layout";
 import { getPrices } from "../helpers/Services/prices";
+import Spinner from "../helpers/spinners/spinner";
+import LCard from "../components/cards/landingPageCard"
+
 
 const LandingPage = () => {
   const [dataLog, setDataLog] = useState([]);
   const [sortedData, setSortedData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(setTimeout(true , 3000));
   const [msg, setMessage] = useState("");
 
   useEffect(() => {
@@ -21,7 +24,6 @@ const LandingPage = () => {
         setMessage("Sorry Please come back after some back");
       });
   }, []);
-  console.log("sorted", sortedData);
 
   return (
     <>
@@ -29,7 +31,13 @@ const LandingPage = () => {
         <Layout title="Landing Page | Crypto Blog">
           <br />
           <div className="card">
-            <div className="card-body"></div>
+            <div className="card-body">
+              {loading ? (
+                <Spinner/>
+              ) : (
+                <LCard title="loaded"/>
+              )}
+            </div>
           </div>
         </Layout>
       </div>
