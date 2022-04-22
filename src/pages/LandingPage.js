@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import Layout from "../layout/Layout";
 import { getPrices } from "../helpers/Services/prices";
 import Spinner from "../helpers/spinners/spinner";
-import LCard from "../components/cards/landingPageCard"
-
+import LCard from "../components/cards/landingPageCard";
 
 const LandingPage = () => {
   const [dataLog, setDataLog] = useState([]);
-  const [filtered, setFiltered] = useState([])
+  const [filter, setFilte] = useState("");
+  const [keyword , setKeyword] = useState("")
   const [loading, setLoading] = useState(setTimeout(true, 3000));
   const [msg, setMessage] = useState("");
 
@@ -15,8 +15,8 @@ const LandingPage = () => {
     getPrices()
       .then((data) => {
         setLoading(true);
-        setDataLog(data.data.coins.sort((a, b) => a.rank - b.rank))
-        console.log("filteredcoins", dataLog)
+        setDataLog(data.data.coins.sort((a, b) => a.rank - b.rank));
+        console.log("filteredcoins", data.data.coins);
         setLoading(false);
       })
       .catch((err) => {
@@ -25,7 +25,6 @@ const LandingPage = () => {
       });
   }, []);
 
-
   return (
     <>
       <div>
@@ -33,7 +32,15 @@ const LandingPage = () => {
           <br />
           <div className="card">
             <div className="card-body">
-              <input placeholder="Search Your Crypto Currencies" className="form-control" />
+              <div className="row">
+                <div className="col-6"></div>
+                <div className="col-6">
+                  <input
+                    placeholder="Search your fav coin"
+                    className="form-control"
+                  />
+                </div>
+              </div>
               <br />
               {loading ? (
                 <Spinner />
@@ -44,7 +51,8 @@ const LandingPage = () => {
                       <div className="col-3">
                         <LCard 
                         title={data.name} 
-                        symbol={data.symbol}
+                        symbol={data.symbol} 
+                        price={data.price}
                         />
                       </div>
                     </>
