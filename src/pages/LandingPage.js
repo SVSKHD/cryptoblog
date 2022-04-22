@@ -6,8 +6,8 @@ import LCard from "../components/cards/landingPageCard";
 
 const LandingPage = () => {
   const [dataLog, setDataLog] = useState([]);
-  const [filter, setFilte] = useState("");
-  const [keyword , setKeyword] = useState("")
+  //const [filter, setFilte] = useState("");
+  //const [keyword , setKeyword] = useState("")
   const [loading, setLoading] = useState(setTimeout(true, 3000));
   const [msg, setMessage] = useState("");
 
@@ -18,6 +18,7 @@ const LandingPage = () => {
         setDataLog(data.data.coins.sort((a, b) => a.rank - b.rank));
         console.log("filteredcoins", data.data.coins);
         setLoading(false);
+        setMessage("")
       })
       .catch((err) => {
         setLoading(false);
@@ -46,6 +47,7 @@ const LandingPage = () => {
                 <Spinner />
               ) : (
                 <div className="row">
+                  {msg}
                   {dataLog.map((data, i) => (
                     <>
                       <div className="col-3">
